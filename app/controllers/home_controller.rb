@@ -16,7 +16,7 @@ class HomeController  < Sinatra::Base
       else
        
         @user = User.find(session[:user_id])
-        @tweets = @user.tweets.last(4)
+        @tweets = @user.tweets.reverse.first(4)
         followings_id = @user.followings.pluck(:follower_id)
         @followings = User.all.where('id  IN (?)',followings_id)
     #===================================================================    
@@ -38,7 +38,7 @@ get '/:nickname' do
 @user=@other_user
 #byebug
    unless @other_user.nil?
-   @other_tweets =  @other_user.tweets.last(4)
+   @other_tweets =  @other_user.tweets.reverse.first(4)
    except_users = @user.followings.pluck(:follower_id).push(@user.id)
    @who_to_follow = User.all.where('id NOT IN (?)',except_users)
    @who_to_follow = @who_to_follow.sample(3)
