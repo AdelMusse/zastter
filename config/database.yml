@@ -4,13 +4,13 @@ development:
   pool: 5
   timeout: 5000
 
-  development:
+test:
   adapter: postgresql
   database: zastter_test
   pool: 5
   timeout: 5000
 
-  development:
+production:
   adapter: postgresql
   database: zastter_production
   pool: 5
