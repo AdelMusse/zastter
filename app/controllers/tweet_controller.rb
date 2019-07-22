@@ -33,7 +33,7 @@ delete '/tweets/:id' do
     @user = User.find(session[:user_id])
    
     @tweet=Tweet.create(text:params["tweet_text"] ,liked_count:0,reply_count:0,retweet_count: 0,user_id: session[:user_id] )
-    byebug
+    # byebug
     Reply.create(tweet_id:params["tweet_id"] ,reply_id: @tweet.id)
   
    redirect   'users/home' 
@@ -45,7 +45,7 @@ post '/retweet' do
     @tweet=Tweet.create(text:params["tweet_text"] ,liked_count:0,reply_count:0,retweet_count: 0,user_id: session[:user_id] )
     
     Retweet.create(tweet_id:params["tweet_id"]  ,retweet_id:@tweet.id )
-    byebug
+    # byebug
    redirect   'users/home' 
   end
   
