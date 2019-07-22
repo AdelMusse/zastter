@@ -62,7 +62,7 @@ post '/retweet' do
    # byebug
     like_tweet.destroy
     @tweet=Tweet.find(params["tweet_id"])
-    @tweet.liked_count -=1 unless @tweet.liked_count >0  
+    @tweet.liked_count -=1 if @tweet.liked_count >0  
     @tweet.save
    end
   

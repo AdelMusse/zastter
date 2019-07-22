@@ -34,22 +34,22 @@
                  <%# ProfileCard  %>
                 <div class="card shadow-sm" style="">
                 <div class="card-body" style="width:100%;">
-                        <h5 class="card-title mb-2 text-muted"><a href="#"> <%=@user.name.upcase%></a></h5>
+                        <h5 class="card-title mb-2 text-muted"><%=@user.name.upcase%></h5>
                         <h6 class="card-subtitle "><a href="/<%=@user.nickname%>"><%=@user.nickname%></a></h6>
                     
                     <div style="text-align:center;" >
                         <div class="ProfileCard-status">
-                            <a href="/users/tweets">tweets</a>
+                            <a href="/users/tweets/<%=@user.id%>">tweets</a>
                             <br>
                             <%=@user.tweets.count%>
                         </div>
                         <div class="ProfileCard-status">
-                            <a href="/users/followers">followers</a>
+                            <a href="/users/followers/<%=@user.id%>">followers</a>
                             <br>
                           <%=@user.followers.count%>
                         </div>
                         <div class="ProfileCard-status">
-                            <a href="/users/followings">following</a>
+                            <a href="/users/followings/<%=@user.id%>">following</a>
                             <br>
                           <%=@user.followings.count%>
                         </div>
